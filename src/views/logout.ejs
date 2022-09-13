@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("./partials/head", {title: 'PROFILE'}) %> 
+<body>
+    <div class="container">
+        <%- include("./partials/header") %> 
+        <main>
+            <div class="col-9 mx-auto">
+                    <div class="div-form">
+                        <span ><%= locals.session && session.nombre ? session.nombre : null%> gracias por visitarnos</span>
+                    </div>
+                
+                    <a href="/">Volver al inicio</a>
+                </div>
+            </div>
+            <div class="mx-auto col-6">
+                <a href="/">Volver al inicio</a>
+            </div>
+        </main>
+<%- include("./partials/footer") %> 
+</div>
+</body>
+</html>

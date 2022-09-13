@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("./partials/head", {title: 'PROFILE'}) %> 
+<body>
+    <div class="container">
+        <%- include("./partials/header") %> 
+        <main>
+            <div class="col-9 mx-auto">
+                <h3>
+                    Hola<%= body.name %>, elegiste el color: <%= body.color %>, tu mail es: <%= body.email %> y tu edad es: <%= body.edad %>
+                </h3>
+            </div>
+            <% if (!locals.errors && locals.body == true) { %>
+                <a href="/users/logout">Gracias :) !</a>
+            <% } %>
+        </main>
+<%- include("./partials/footer") %> 
+</div>
+</body>
+</html>

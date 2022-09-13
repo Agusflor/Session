@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("./partials/head", {title: 'LOGIN'}) %> 
+<body>
+    <div class="container">
+        <%- include("./partials/header") %> 
+        <main>
+            <div class="col-9  mx-auto">
+                <div class=" mx-auto pt-2">
+                    <h2>Ingresa</h2>
+                </div>
+                <form method="POST" action="/users/login">
+                    <div class="mb-3">
+                      <label for="name" class="form-label">Nombre</label>
+                      <input type="text" class="form-control" value="<%= locals.old && old.name? old.name :null%>" id="name">
+                      <span class="text-danger"><%= locals.errors && errors.name ? errors.name.msg : null %></span>
+                    </div>
+                    <div class="mb-3">
+                        <label for="tema" class="form-label">Tema preferido</label>
+                        <select id="tema" class="form-select">
+                            <option value="" hidden selected></option>
+                            <option <%= locals.old && old.tema == '#ff0000' ? 'selected' : null %> value="#ff0000">Derivadas dirrecionales</option>
+                            
+                            <option <%= locals.old && old.tema == '#0000ff' ? 'selected' : null %> value="#0000ff">Continuidad</option>
+                            
+                            <option <%= locals.old && old.tema == '#00ff00' ? 'selected' : null %> value="#00ff00">Superficie en R3</option>
+                            </select>
+                            <span class="text-danger"><%= locals.errors && errors.tema ? errors.tema.msg : null %></span>
+                      </div>
+                    <div class="mb-3">
+                      <label for="email" class="form-label">Email address</label>
+                      <input type="email" class="form-control" id="email" value="<%= locals.old && old.email ? old.email : null%>">
+                      <span class="text-danger"><%= locals.errors && errors.email ? errors.email.msg : null %></span>
+                    </div>
+                    <div class="mb-3">
+                        <label for="edad" class="form-label">Edad</label>
+                        <input value="<%= locals.old && old.edad ?old.edad : null%> "type="number" class="form-control" id="edad">
+                        <span class="text-danger"><%= locals.errors && errors.edad ? errors.edad.msg : null %></span>
+                      </div>
+                      <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="recordarme">
+                        <label class="form-check-label" for="recordarme">Recordarme</label>
+                      </div>
+                      <div class="mb-3 form-check">
+                    <button type="submit" class="btn btn-sm btn-outline-secondary">Submit</button>
+                </div>
+                <div>
+                  <% if (!locals.errors && locals.body == true) { %>
+                    <a href="/users/profile">Dar gracias</a>
+                <% } %>
+                </div>
+                  </form>
+            </div>
+        </main>
+<%- include("./partials/footer") %> 
+</div>
+</body>
+</html>
